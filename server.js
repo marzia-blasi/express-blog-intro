@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+app.use(express.static("public"));
 
 /**
 app.get("/", (req, res) => {
@@ -52,3 +53,7 @@ const posts = [
     tags: ["torta", "fatto a mano", "ricetta veloce", "cioccolato"],
   },
 ];
+
+app.get("/api/posts", (req, res) => {
+  res.jason(posts);
+});
